@@ -22,19 +22,20 @@ $$
 \begin{align*}
 X_t&=X_0\exp\left\{0.3 B_t+\left(0.05-\frac{0.3^2}{2}\right)t\right\}\tag{1}\\
 &=X_0\exp \left\{0.19B_t+0.245t \right\}\\
-\end{align*}$$
+\end{align*}
+$$
 
 Therefore, using (1) for the RHS of the numerator for time 2 and 2.5
 
 $$
 \begin{align*}
-&\mathbb{P}\{30\leq X_{2.5}\leq 33|X_2=30\}\\
+&\mathbb{P}\left\{30\leq X_{2.5}\leq 33 \mid X_2=30\right\}\\
 &=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2.5}{0.30}\leq B_{2.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2.5}{0.30}\Bigg|B_2=\frac{\log\left(\frac{30}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2}{0.30}\right\}\\
 &=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-0.0125}{0.30}\leq B_{2.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-0.0125}{0.30}\Bigg|B_2=\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\right\}\\
 &=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-0.0125}{0.30}\right. - \frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30} \leq B_{0.5} \leq \left. \frac{\log\left(\frac{33}{X_0}\right)-0.0125}{0.30}-\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\right\}\\
 &=\mathbb{P}\left\{\frac{-0.0125+0.01}{0.30}\leq B_{0.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-0.0125-\log\left(\frac{30}{X_0}\right)+0.01}{0.30}\right\}\\
 &=\mathbb{P}\left\{-\frac{0.0025}{0.30}\leq B_{0.5} \leq \frac{\log\left(\frac{33}{30}\right)-0.0025}{0.30}\right\}\\
-&=\mathbb{P}\left\{-0.0083\leq B_{0.5}\leq 0.3093\right\}\\
+&=\mathbb{P}\left{-0.0083\leq B_{0.5}\leq 0.3093\right\}\\
 \end{align*}
 $$
 
