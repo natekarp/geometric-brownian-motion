@@ -150,6 +150,9 @@ print("The theoretical Probability: 0.1587")
 # Final result
 The final output of the code matches my simulated probability of 0.173.
 
+<img width="636" height="408" alt="gbmplot" src="https://github.com/user-attachments/assets/649a5748-98fd-4e75-b3d5-e700849e7fe2" />
+
+
 
 
 
