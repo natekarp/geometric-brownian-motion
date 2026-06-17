@@ -20,22 +20,21 @@ we can read off the solution, namely
 
 $$
 \begin{align*}
-X_t&=X_0\exp\left\{0.3 B_t+\left(0.05-\frac{0.3^2}{2}\right)t\right\}\tag{1}\\
-&=X_0\exp \left\{0.19B_t+0.245t \right\}\\
-\end{align*}
-$$
+X_t &= X_0\exp\left\{0.3 B_t+\left(0.05-\frac{0.3^2}{2}\right)t\right\}\tag{1}\\
+&= X_0\exp \left\{0.3 B_t+0.005t \right\}
+\end{align*}$$
 
 Therefore, using (1) for the RHS of the numerator for time 2 and 2.5
 
 $$
 \begin{align*}
-&\mathbb{P}\left\{30\leq X_{2.5}\leq 33 \mid X_2=30\right\}\\
-&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2.5}{0.30}\leq B_{2.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2.5}{0.30}\Bigg|B_2=\frac{\log\left(\frac{30}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2}{0.30}\right\}\\
-&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-0.0125}{0.30}\leq B_{2.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-0.0125}{0.30}\Bigg|B_2=\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\right\}\\
-&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-0.0125}{0.30}\right. - \frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30} \leq B_{0.5} \leq \left. \frac{\log\left(\frac{33}{X_0}\right)-0.0125}{0.30}-\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\right\}\\
+&\mathbb{P}\Big\{30\leq X_{2.5}\leq 33 \;\Big|\; X_2=30\Big\}\\
+&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2.5}{0.30}\leq B_{2.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2.5}{0.30}\;\Bigg|\;B_2=\frac{\log\left(\frac{30}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2}{0.30}\right\}\\
+&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-0.0125}{0.30}\leq B_{2.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-0.0125}{0.30}\;\Bigg|\;B_2=\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\right\}\\
+&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-0.0125}{0.30} - \frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30} \leq B_{0.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-0.0125}{0.30}-\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\right\}\\
 &=\mathbb{P}\left\{\frac{-0.0125+0.01}{0.30}\leq B_{0.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-0.0125-\log\left(\frac{30}{X_0}\right)+0.01}{0.30}\right\}\\
 &=\mathbb{P}\left\{-\frac{0.0025}{0.30}\leq B_{0.5} \leq \frac{\log\left(\frac{33}{30}\right)-0.0025}{0.30}\right\}\\
-&=\mathbb{P}\left{-0.0083\leq B_{0.5}\leq 0.3093\right\}\\
+&=\mathbb{P}\left{-0.0083\leq B_{0.5}\leq 0.3093\right\}
 \end{align*}
 $$
 
@@ -43,13 +42,13 @@ using the stationary of Brownian increments. If $X\sim\mathcal{N}(0,1)$ so that 
 
 $$
 \begin{align*}
-\mathbb{P}\{30\leq X_{2.5}\leq 33|X_2=30\}&=\mathbb{P}\{-0.0083\leq B_{0.5} \leq 0.3093\}\\
+\mathbb{P}\{30\leq X_{2.5}\leq 33 \mid X_2=30\} &=\mathbb{P}\{-0.0083\leq B_{0.5} \leq 0.3093\}\\
 &=\mathbb{P}(-0.0083\leq \sqrt{0.5}Z \leq 0.3093)\\
-&=\mathbb{P}\left(\frac{-0.0083}{\sqrt{0.5}}\right)\leq Z \leq \left(\frac{0.3093}{\sqrt{0.5}}\right)\\
+&=\mathbb{P}\left(\frac{-0.0083}{\sqrt{0.5}}\leq Z \leq \frac{0.3093}{\sqrt{0.5}}\right)\\
 &=\mathbb{P}(-0.0118\leq Z \leq 0.4375)\\
 &=\Phi(0.4375) - \Phi(-0.0118) \tag{1}\\
 &=0.669126-0.495283\\
-&\approx 0.1738\\
+&\approx 0.1738
 \end{align*}
 $$
 
