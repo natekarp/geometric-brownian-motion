@@ -61,7 +61,7 @@ $$
 \end{align*}
 $$
 
-```
+```r
 pnorm(0.4375) - pnorm(-0.0118)
 # [1] 0.173833
 
@@ -70,9 +70,10 @@ pnorm(-0.0118)
 
 pnorm(0.4375)
 # [1] 0.6691256
+```
+
 # Method
 
-```
 import numpy as np
 
 # 1. the parameters given in the problem
