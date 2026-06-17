@@ -74,6 +74,7 @@ pnorm(0.4375)
 
 # Method
 
+```
 import numpy as np
 
 # 1. the parameters given in the problem
