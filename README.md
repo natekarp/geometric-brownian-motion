@@ -6,9 +6,70 @@ per the lecture notes by Professor Michael Kozdron, University of Regina.
 
 Note, there was an error in the lecture notes, and my solution:
 
-<img width="681" height="719" alt="1pt" src="https://github.com/user-attachments/assets/7a67d882-7b7d-465f-ac7a-ff0a8deab711" />
-<img width="687" height="859" alt="2pt" src="https://github.com/user-attachments/assets/c08453a5-52ba-4b4b-83d1-43d5086c3ea4" />
-<img width="723" height="402" alt="3pt" src="https://github.com/user-attachments/assets/323e9672-54d7-4d7c-8cd3-0a39a86ebf68" />
+\noindent\textbf{Example 4.} (Stock price). Suppose that the price of a stock $\{X_t,t\ge0\}$ follows a geometric Brownian motion with drift $0.05$ and volatility $0.3$ so that it satisfies the stochastic differential equation
+$$dX_t = 0.3X_t dB_t + 0.05X_t dt.$$ 
+If the stock of the stock at time $2$ is $30$, determine the probability that the price of the stock at time $2.5$ is between $30$ and $33$.
+\\[12pt]
+\noindent\textbf{Solution.}
+Since the price of the stock is given by geometric Brownian motion
+$$dX_t = 0.3X_t dB_t + 0.05X_t dt.$$ 
+we can read off the solution, namely
+\begin{align*}
+X_t&=X_0\exp\left\{0.3 B_t+\left(0.05-\frac{0.3^2}{2}\right)t\right\}\tag{1}\\
+&=X_0\exp \left\{0.19B_t+0.245t \right\}\\
+\end{align*}
+Therefore, using (1) for the RHS of the numerator for time 2 and 2.5
+\begin{align*}
+&\mathbb{P}\{30\leq X_{2.5}\leq 33|X_2=30\}\\
+&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2.5}{0.30}\leq B_{2.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2.5}{0.30}\Bigg|B_2=\frac{\log\left(\frac{30}{X_0}\right)-\left(0.05-\frac{0.3^2}{2}\right) 2}{0.30}\right\}\\
+&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-0.0125}{0.30}\leq B_{2.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-0.0125}{0.30}\Bigg|B_2=\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\right\}\\
+&=\mathbb{P}\left\{\frac{\log\left(\frac{30}{X_0}\right)-0.0125}{0.30}-\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\leq B_{0.5} \leq \frac{\log\left(\frac{33}{X_0}\right)-0.0125}{30}-\frac{\log\left(\frac{30}{X_0}\right)-0.01}{0.30}\right\}\\
+&=\mathbb{P}\left\{\frac{\cancel{\log\left(\frac{30}{X_0}\right)}-0.0125-\cancel{\log\left(\frac{30}{X_0}\right)}+0.01}{0.30}\leq B_{0.5} \leq \frac{\textcolor{blue}{\log\left(\frac{33}{X_0}\right)}-0.0125-\textcolor{blue}{\log\left(\frac{30}{X_0}\right)}+0.01}{0.30}\right\}\\
+&=\mathbb{P}\left\{-\frac{0.0025}{0.30}\leq B_{0.5} \leq \frac{\textcolor{blue}{\log\left(\frac{33}{30}\right)}-0.0025}{0.30}\right\}\\
+&=\mathbb{P}\left\{-0.0083\leq B_{0.5}\leq 0.3093\right\}\\
+\end{align*}
+using the stationary of Brownian increments. If $X\sim\mathcal{N}(0,1)$ so that $B_{0.5}\sim\sqrt{0.5}Z$, then
+\begin{align*}
+\mathbb{P}\{30\leq X_{2.5}\leq 33|X_2=30\}&=\mathbb{P}\{-0.0083\leq B_{0.5} \leq 0.3093\}\\
+&=\mathbb{P}(-0.0083\leq \sqrt{0.5}Z \leq 0.3093)\\
+&=\mathbb{P}\left(\frac{-0.0083}{\sqrt{0.5}}\right)\leq Z \leq \left(\frac{0.3093}{\sqrt{0.5}}\right)\\
+&=\mathbb{P}(-0.0118\leq Z \leq 0.4375)\\
+&=\Phi(0.4375)\leq Z \leq 1-\Phi(0.0118) \tag{\text{1}}\\
+&=0.669126-0.495283\\
+&\approx 0.1738\\
+\end{align*}
+where $(1)$ has swapped sides and calculated by the normal distribution function on table 4
+\begin{align*}
+1-\frac{1}{\sqrt{2\pi}}\int^{0.0118}_{-\infty} e^{-\frac{1}{2}t^2}dt\equiv \frac{1}{\sqrt{2\pi}}\int^{-0.0118}_{-\infty} e^{-\frac{1}{2}t^2}dt&=0.495293\\
+\frac{1}{\sqrt{2\pi}}\int^{0.4375}_{-\infty} e^{-\frac{1}{2}t^2}dt&=0.669126\\
+\end{align*}
+\begin{verbatim}
+    pnorm(0.4375)-pnorm(-0.0118)
+    [1] 0.173833
+
+    pnorm(-0.0118)
+    [1] 0.4952926
+
+    pnorm(0.4375)
+    [1] 0.6691256
+\end{verbatim}
+\textcolor{blue}{Note:} for $\log\left(\frac{33}{X_0}\right)$, it's calculated as $\ln\left(\frac{33}{X_0}\right)$, therefore we have 
+\begin{align*}
+&\frac{\ln\left(\frac{33}{X_0}\right)-0.0125-\ln\left(\frac{30}{X_0}\right)+0.01}{0.30}\\
+&=\frac{\ln\left(\frac{33}{30}\right)-0.0025}{0.30}\tag{2}\\
+&=0.3093\\
+\end{align*}
+Plugging this into the calculator as $\ln$ vs $\log$ yields the above result. 
+\\[12pt]
+For (2), we apply the $\log$ rule: $\log_c(a)-\log_c(b)=\log_c(\frac{a}{b})$, therefore is we were to compute this manually
+\begin{align*}
+    &\log_c(a)-\log_c(b)=\log_c(\frac{a}{b})\\
+    &=\ln\left(\frac{33}{X_0}\right)-\ln\left(\frac{30}{X_0}\right)\\
+    &=\ln\left(\frac{\frac{33}{\cancel{X_0}}}{\frac{30}{\cancel{X_0}}}\right)\\
+    &=\ln\left(\frac{33}{30}\right)\\
+    &=0.09531\\
+\end{align*} 
+$\square$\\
 
 # Method
 
